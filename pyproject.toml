@@ -10,6 +10,20 @@ packages = [{include = "ninetyninebottles"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 
+[tool.poetry.scripts]
+ninetyninebottles = "ninetyninebottles.main:main"
+
+[tool.poetry.group.translate.dependencies]
+babel = "^2.11.0"
+
+[tool.poetry.group.automation.dependencies]
+poethepoet = "^0.17.1"
+
+[tool.poe.tasks]
+gettext-pot = "pybabel extract -o po/ninetyninebottles.pot ninetyninebottles"
+gettext-po = { "script" = "po.build-babel:update_po_files" }
+gettext-mo = { "script" = "po.build-babel:compile_mo_files" }
+translations = ["gettext-pot", "gettext-po", "gettext-mo"]
 
 [build-system]
 requires = ["poetry-core"]
