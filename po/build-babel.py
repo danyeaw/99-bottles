@@ -12,7 +12,6 @@ def run_babel(command: str, input: Path, output_file: Path, locale: str):
             f"--input={input}",
             f"--output-file={output_file}",
             f"--locale={locale}",
-            "--domain=ninetyninebottles",
         ]
     )
 
@@ -31,7 +30,7 @@ def compile_mo_files():
             / "locale"
             / path.stem
             / "LC_MESSAGES"
-            / "ninetyninebottles.mo"
+            / "messages.mo"
         )
         mo_path.parent.mkdir(parents=True, exist_ok=True)
         run_babel("compile", path, mo_path, path.stem)
