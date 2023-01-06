@@ -6,7 +6,7 @@ def main() -> None:
     for bottles in range(99, 1, -1):
         print(gettext("{} bottles of beer on the wall,").format(bottles))
         print(gettext("{} bottles of beer.").format(bottles))
-        print(gettext("Take one down, pass it around,").format(bottles - 1))
+        print(gettext("Take one down, pass it around,"))
         print(gettext("{} bottles of beer on the wall.").format(bottles - 1))
 
     print(gettext("1 bottle of beer on the wall,"))
